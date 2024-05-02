@@ -1,4 +1,4 @@
-package coding.legaspi.unitconverterapp.utils
+package coding.legaspi.unitconverterapp.data
 
 /**
  * Created by Karlen Legaspi

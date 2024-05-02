@@ -1,4 +1,4 @@
-package coding.legaspi.unitconverterapp
+package coding.legaspi.unitconverterapp.screen.converter
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

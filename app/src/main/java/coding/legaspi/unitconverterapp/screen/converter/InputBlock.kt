@@ -1,4 +1,4 @@
-package coding.legaspi.unitconverterapp
+package coding.legaspi.unitconverterapp.screen.converter
 
 import android.content.Context
 import android.widget.Toast
@@ -25,7 +25,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coding.legaspi.unitconverterapp.utils.Conversion
+import coding.legaspi.unitconverterapp.data.Conversion
 
 /**
  * Created by Karlen Legaspi
