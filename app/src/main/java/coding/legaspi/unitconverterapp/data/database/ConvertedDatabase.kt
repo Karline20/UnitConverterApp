@@ -12,21 +12,21 @@ abstract class ConvertedDatabase : RoomDatabase() {
 
     abstract val converterDAO : ConverterDAO
 
-    companion object{
-        @Volatile
-        private var INSTANCE : ConvertedDatabase? = null
-        fun getInstance(context: Context): ConvertedDatabase{
-            synchronized(context){
-                var instance = INSTANCE
-                if (instance==null){
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        ConvertedDatabase::class.java,
-                        "converter_data_database"
-                    ).build()
-                }
-                return instance
-            }
-        }
-    }
+//    companion object{
+//        @Volatile
+//        private var INSTANCE : ConvertedDatabase? = null
+//        fun getInstance(context: Context): ConvertedDatabase{
+//            synchronized(context){
+//                var instance = INSTANCE
+//                if (instance==null){
+//                    instance = Room.databaseBuilder(
+//                        context.applicationContext,
+//                        ConvertedDatabase::class.java,
+//                        "converter_data_database"
+//                    ).build()
+//                }
+//                return instance
+//            }
+//        }
+//    }
 }

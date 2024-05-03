@@ -1,5 +1,8 @@
 package coding.legaspi.unitconverterapp.utils
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import coding.legaspi.unitconverterapp.data.Conversion
@@ -13,6 +16,10 @@ import kotlinx.coroutines.launch
  */
 class ConverterViewModel(private val converterRepository: ConverterRepository) : ViewModel() {
 
+    val selectedConversion : MutableState<Conversion?> = mutableStateOf(null)
+    val inputText : MutableState<String> = mutableStateOf("")
+    val typedValue = mutableStateOf("0.0")
+
     fun getConversion() = listOf(
         Conversion(1, "Pounds to Kilograms", "lbs", "kg", 0.453592),
         Conversion(2, "Kilograms to Pounds", "kg", "lbs", 2.20462),
@@ -21,14 +28,20 @@ class ConverterViewModel(private val converterRepository: ConverterRepository) :
         Conversion(5, "Miles to Kilometers", "mi", "km", 1.60934),
         Conversion(6, "Kilometers to Miles", "km", "mi", 0.621371),
     )
-
+    val resultList = converterRepository.getResult()
     fun addResult(message1 : String , message2 : String){
         viewModelScope.launch(Dispatchers.IO) {
             converterRepository.insertResult(ConversionResult(0, message1,message2))
         }
     }
-
-    val resultList = converterRepository.getResult()
-
-
+    fun removeResult(item : ConversionResult){
+        viewModelScope.launch(Dispatchers.IO) {
+            converterRepository.deleteResult(item)
+        }
+    }
+    fun clearAll(){
+        viewModelScope.launch(Dispatchers.IO) {
+            converterRepository.deleteAll()
+        }
+    }
 }
